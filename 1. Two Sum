@@ -1,6 +1,3 @@
-This code implements an efficient solution to the "two-sum" problem by using a hash table to store indices of previously seen numbers.
-It has a time complexity of O(n) because it iterates over the input array only once, and a space complexity of O(n) because it needs to store all the elements in the hash table. 
-The algorithm is optimized for worst-case lookup scenarios, as hash table lookups take constant time on average but can take O(n) in the worst case.
 
 APPROACH 01 USING FOR LOOP 
  public int[] twoSum(int[] nums, int target) {
@@ -13,3 +10,27 @@ APPROACH 01 USING FOR LOOP
        }
    }
    return new int[]{};
+   }
+   
+APPRACH 02 USING HASHMAP
+This code implements an efficient solution to the "two-sum" problem by using a hash table to store indices of previously seen numbers.
+It has a time complexity of O(n) because it iterates over the input array only once, and a space complexity of O(n) because it needs to store all the elements in the hash table. 
+The algorithm is optimized for worst-case lookup scenarios, as hash table lookups take constant time on average but can take O(n) in the worst case.
+
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+  
+Map<Integer,Integer>hm=new HashMap<>();
+for(int i=0;i<nums.length;i++){
+    int complement=target-nums[i];
+    if(hm.containsKey(complement)){
+        return new int[]{hm.get(complement),i};
+     } else{
+         hm.put(nums[i],i);
+     } 
+         
+         }
+         return new int[]{};
+  }
+
+}
