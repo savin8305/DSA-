@@ -1,0 +1,27 @@
+class Solution {
+    public boolean isLongPressedName(String name, String typed) {
+        if(name.length()>typed.length())return false;
+        int i=0,j=0;
+        while(j<typed.length()&&i<name.length()){
+            if(name.charAt(i)==typed.charAt(j)){
+                i++;
+                j++;
+            }
+            else if(i>0&&typed.charAt(j)==name.charAt(i-1)){
+                j++;
+            }
+            else{
+                return false;
+            }
+        }
+        while(j<typed.length()){
+            if(name.charAt(i-1)!=typed.charAt(j))return false;
+            j++;
+        }
+        return i<name.length()?false:true;
+    }
+}
+
+This code has a time complexity of O(n), where 'n' is the length of the longer string i.e., 'typed'.
+This is because it iterates through all characters in both strings exactly once. It also has a space complexity of O(1), 
+because it only uses a few constant extra variables for indexing and comparisons, and does not create any additional data structures that depend on the input size.
