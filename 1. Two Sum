@@ -1,0 +1,15 @@
+This code implements an efficient solution to the "two-sum" problem by using a hash table to store indices of previously seen numbers.
+It has a time complexity of O(n) because it iterates over the input array only once, and a space complexity of O(n) because it needs to store all the elements in the hash table. 
+The algorithm is optimized for worst-case lookup scenarios, as hash table lookups take constant time on average but can take O(n) in the worst case.
+
+APPROACH 01 USING FOR LOOP 
+ public int[] twoSum(int[] nums, int target) {
+   for(int i=0;i<nums.length;i++){
+       for(int j=i+1;j<nums.length;j++){
+           int sum=nums[i]+nums[j];
+           if(sum==target){
+               return new int[]{i,j};
+           }
+       }
+   }
+   return new int[]{};
